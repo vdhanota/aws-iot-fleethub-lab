@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create resources for FleetHub lab.
+
+Resources:
+  IoTJobsBucket:
+    Type: AWS::S3::Bucket
+    Description: Creating Amazon S3 bucket for IoT jobs
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+
+  S3BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref IoTJobsBucket
+      PolicyDocument:
+        Statement:
+          - Action: 's3:*'
+            Effect: Deny
+            Resource:
+              - !Sub 
+                - 'arn:aws:s3:::${S3BucketName}'
+                - S3BucketName: !Ref IoTJobsBucket
+              - !Sub 
+                - 'arn:aws:s3:::${S3BucketName}/*'
+                - S3BucketName: !Ref IoTJobsBucket
+            Condition:
+              Bool:
+                'aws:SecureTransport': 'false'
+            Principal: '*'
+
+Outputs:
+  IoTJobsBucket:
+    Description: S3 bucket for IoT jobs
+    Value: !Ref IoTJobsBucket
