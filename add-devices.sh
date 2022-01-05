@@ -70,7 +70,7 @@ for i in $(seq 1 $DEV_COUNT); do
       --public-key-outfile $THING_PATH/public.key \
       --private-key-outfile $THING_PATH/private.key \
       --certificate-pem-outfile $THING_PATH/certificate.pem > $THING_PATH/keys_response
-    ln -s /home/ec2-user/workspace/rootCA.pem $THING_PATH/rootCA.pem
+    ln -s "${CUR_PATH}/rootCA.pem" $THING_PATH/rootCA.pem
 
     # Parse output for certificate ARN and ID
     CERTIFICATE_ARN=$(jq -r ".certificateArn" $THING_PATH/keys_response)
