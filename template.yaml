@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Create resources for FleetHub lab.
+# aws cloudformation deploy --template-file template.yaml --stack-name iot-fleethub-lab
 
 Resources:
   IoTJobsBucket:
@@ -10,11 +11,11 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
-
-        BlockPublicAcls: True
-        BlockPublicPolicy: True
-        IgnorePublicAcls: True
-        RestrictPublicBuckets: True
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
 
   S3BucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
