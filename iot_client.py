@@ -315,7 +315,7 @@ class IoTThing(AWSIoTMQTTClient):
 if __name__ == "__main__":
     endpoint = args.endpoint
     thing_name = args.thing
-    thing_path = "/home/ec2-user/workspace/devices/" + thing_name + "/"
+    thing_path = os.getcwd() + "/devices/" + thing_name + "/"
     thing = IoTThing(thing_name, thing_path, endpoint)
     thing.init_app_mqtt_client()
     thing.heartbeater()
