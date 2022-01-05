@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Create resources for FleetHub lab.
-# aws cloudformation deploy --template-file template.yaml --stack-name iot-fleethub-lab
 
 Resources:
   IoTJobsBucket:
