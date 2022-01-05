@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-# - Using the iot_client.py from aws-iot-device-management-with-fleet-hub-demo
-#   on Github with modifications to fit this FleetHub demo
+# - Using the iot_client.py from aws-iot-device-management-with-fleet-hub-demo on Github
 #   https://github.com/aws-samples/aws-iot-device-management-with-fleet-hub-demo/
+# - This code is modified to fit this FleetHub lab
 
 import os
 import sys
