@@ -5,7 +5,8 @@
 DEV_COUNT=10
 
 # Path for storing device config
-DEV_PATH="/home/ec2-user/workspace/devices"
+CUR_PATH=`pwd`
+DEV_PATH="${CUR_PATH}/devices"
 
 # Create an IoT policy
 # NOTE: This policy is for demostration purpose only!
