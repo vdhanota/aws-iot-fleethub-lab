@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-# - Using the iot_client.py from aws-iot-device-management-with-fleet-hub-demo on Github
-#   https://github.com/aws-samples/aws-iot-device-management-with-fleet-hub-demo/
-# - This code is modified to fit this FleetHub lab
+# Using the iot_client.py from aws-iot-device-management-with-fleet-hub-demo on Github
+# https://github.com/aws-samples/aws-iot-device-management-with-fleet-hub-demo/
+# Original code modified for AWS IoT Fleet Hub Lab
 
 import os
 import sys
@@ -238,6 +238,7 @@ class IoTThing(AWSIoTMQTTClient):
         job_document = job_details['jobDocument']
         if 'operation' in job_document.keys():
             if job_document['operation'] == "FIRMWARE_UPGRADE":
+                #time.sleep(10)
                 self.firmware_upgrade(job_document)
             elif job_document['operation'] == "ORDER_66":
                 self.demo_connectivity_issues()
