@@ -22,6 +22,7 @@ echo -n > device_list
 # Install dependencies
 sudo yum install -y jq screen
 pip3 install AWSIoTPythonSDK
+pip3 install requests
 
 # Create an IoT policy
 # NOTE: This policy is for demostration purpose only! Please do not use in production environment.
